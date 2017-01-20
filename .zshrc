@@ -1,3 +1,8 @@
+############# zplug config #############
+# run
+# curl -sL zplug.sh/installer | zsh
+# to install zplug itself
+
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-completions"
@@ -13,12 +18,11 @@ zplug "junegunn/fzf-bin", \
     use:"*linux*amd64*"
 zplug "junegunn/fzf", use:"shell/*.zsh"
 
-zplug "sorin-ionescu/prezto", use:modules/history/init.zsh defer:2
-zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh defer:2
+zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
+zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
 
 zplug 'denysdovhan/spaceship-zsh-theme', as:theme
 
-# Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -26,18 +30,20 @@ if ! zplug check --verbose; then
     fi
 fi
 
-# Then, source plugins and add commands to $PATH
 zplug load
 
+############# exports #############
 export JAVA_HOME='/usr/lib/jvm/java-8-oracle'
 export IDEA_JDK='/usr/lib/jvm/java-8-oracle'
 
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/code
+export GOPATH=$HOME/code/go
 
 export EDITOR='vim'
+
 export HISTCONTROL=erasedups:ignorespace
 
+############# aliases #############
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 alias gac='git add -A && git commit -v'
