@@ -63,6 +63,11 @@ sgfood () {
 	curl -s "http://altepost.sipgate.net/api.php" | jq '.meals | .[] | "\(.name) (\(.type))"' | sed 's/"//g'
 }
 
+take () {
+	mkdir -p $1
+	cd $1
+}
+
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
