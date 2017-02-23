@@ -69,6 +69,11 @@ take () {
 	cd $1
 }
 
+deletebranch ()  {
+    git branch -d $1
+    git push origin :$1
+}
+
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
