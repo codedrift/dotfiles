@@ -42,6 +42,9 @@ export IDEA_JDK='/usr/lib/jvm/java-8-oracle'
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
 
+SCALA_HOME=$HOME/scala
+export PATH=$PATH:$SCALA_HOME/bin
+
 export EDITOR='vim'
 
 export HISTCONTROL=erasedups:ignorespace
