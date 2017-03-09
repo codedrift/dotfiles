@@ -22,6 +22,8 @@ zplug "junegunn/fzf", use:"shell/*.zsh"
 zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
 zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
 
+zplug "plugins/kubectl", from:oh-my-zsh
+
 zplug 'denysdovhan/spaceship-zsh-theme', as:theme
 
 if ! zplug check --verbose; then
