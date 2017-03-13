@@ -52,11 +52,18 @@ export HISTCONTROL=erasedups:ignorespace
 ############# aliases #############
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
+
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
 alias gac='git add -A && git commit -v'
+alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git diff --cached && echo "\n${BLUE}########## Unstaged ##########${NC}" && git diff'
 alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
 alias gl='git pull'
+alias glo='git log --graph --oneline'
+
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
 alias aptdistupgrade='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
