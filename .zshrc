@@ -41,6 +41,7 @@ export IDEA_JDK='/usr/lib/jvm/java-8-oracle'
 
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH
 
 SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
