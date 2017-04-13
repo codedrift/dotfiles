@@ -87,12 +87,14 @@ deletebranch ()  {
     git push origin :$1
 }
 
+# Usage: scratch <name>
 scratch () {
-    cd $HOME/git/notes
-    today=`date +%Y-%m-%d.%H:%M:%S`
-    scratch_filename="scratch_$today.txt"
-    touch $scratch_filename
-    code $scratch_filename
+    SCRATCHFOLDER=$HOME/git/notes/scratch
+    SCRATCHTIME=`date +%Y-%m-%d.%H:%M:%S`
+    SCRATCHFILE="scratch_${SCRATCHTIME}_$1.txt"
+    echo "Opening new scratch file $SCRATCHFOLDER/$SCRATCHFILE"
+    touch $SCRATCHFOLDER/$SCRATCHFILE
+    code $SCRATCHFOLDER/$SCRATCHFILE
 }
 
 # use alt(arrow) to move through words
