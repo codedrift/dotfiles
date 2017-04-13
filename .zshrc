@@ -87,6 +87,14 @@ deletebranch ()  {
     git push origin :$1
 }
 
+scratch () {
+    cd $HOME/git/notes
+    today=`date +%Y-%m-%d.%H:%M:%S`
+    scratch_filename="scratch_$today.txt"
+    touch $scratch_filename
+    code $scratch_filename
+}
+
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
