@@ -46,6 +46,8 @@ export PATH=$PATH:$GOPATH
 SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
+export PATH=$PATH:$HOME/.config/yarn/link/node_modules/.bin
+
 export EDITOR='vim'
 
 export HISTCONTROL=erasedups:ignorespace
