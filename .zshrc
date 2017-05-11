@@ -49,7 +49,7 @@ SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
 export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$HOME/scripts/bin
+export PATH=$PATH:$HOME/scripts/binary
 
 export EDITOR='vim'
 
