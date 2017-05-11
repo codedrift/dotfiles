@@ -24,6 +24,8 @@ zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
 
 zplug "plugins/kubectl", from:oh-my-zsh
 
+zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
+
 zplug 'denysdovhan/spaceship-zsh-theme', as:theme
 
 if ! zplug check --verbose; then
@@ -46,7 +48,8 @@ export PATH=$PATH:$GOPATH
 SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
-export PATH=$PATH:$HOME/.config/yarn/link/node_modules/.bin
+export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
+export PATH=$PATH:$HOME/scripts/bin
 
 export EDITOR='vim'
 
