@@ -49,7 +49,7 @@ SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
 
 export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$HOME/scripts/binary
+export PATH=$PATH:$HOME/scripts/bin
 
 export EDITOR='vim'
 
@@ -77,29 +77,9 @@ alias aptdistupgrade='sudo apt update && sudo apt dist-upgrade && sudo apt autor
 #purge all docker images and containers
 alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
 
-#get lunch info for sipgate GmbH. requires jq to parse json
-sgfood () {
-	curl -s "http://altepost.sipgate.net/api.php" | jq '.meals | .[] | "\(.name) (\(.type))"' | sed 's/"//g'
-}
-
 take () {
 	mkdir -p $1
 	cd $1
-}
-
-deletebranch ()  {
-    git branch -d $1
-    git push origin :$1
-}
-
-# Usage: scratch <name>
-scratch () {
-    SCRATCHFOLDER=$HOME/git/notes/scratch
-    SCRATCHTIME=`date +%Y-%m-%d.%H:%M:%S`
-    SCRATCHFILE="scratch_${SCRATCHTIME}_$1.txt"
-    echo "Opening new scratch file $SCRATCHFOLDER/$SCRATCHFILE"
-    touch $SCRATCHFOLDER/$SCRATCHFILE
-    code $SCRATCHFOLDER/$SCRATCHFILE
 }
 
 # use alt(arrow) to move through words
