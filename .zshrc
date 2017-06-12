@@ -26,7 +26,7 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
-zplug 'denysdovhan/spaceship-zsh-theme', as:theme
+zplug "themes/jreese",   from:oh-my-zsh, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -82,6 +82,11 @@ take () {
 	cd $1
 }
 
+cdl () {
+    cd $1 && ls
+}
+
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
