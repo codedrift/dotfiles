@@ -55,6 +55,9 @@ export EDITOR='vim'
 
 export HISTCONTROL=erasedups:ignorespace
 
+#use exact match for fzf
+export FZF_DEFAULT_OPTS="-e"
+
 ############# aliases #############
 alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
