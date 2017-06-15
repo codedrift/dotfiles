@@ -26,7 +26,7 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
-zplug 'denysdovhan/spaceship-zsh-theme', as:theme
+zplug 'themes/jreese', from:oh-my-zsh, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -88,3 +88,7 @@ take () {
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
