@@ -26,7 +26,7 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
-zplug "themes/jreese",   from:oh-my-zsh, as:theme
+zplug 'themes/jreese', from:oh-my-zsh, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -76,7 +76,7 @@ alias glo='git log --graph --oneline'
 
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
-alias aptdistupgrade='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove'
+alias aptdistupgrade='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
 
 #purge all docker images and containers
 alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
