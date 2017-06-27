@@ -50,6 +50,7 @@ export PATH=$PATH:$SCALA_HOME/bin
 
 export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 export PATH=$PATH:$HOME/scripts/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export EDITOR='vim'
 
