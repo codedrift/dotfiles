@@ -1,0 +1,183 @@
+#mod keys
+set $mod Mod4
+floating_modifier $mod
+
+#font setting
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+#color vars
+set $theme_background #000000
+set $theme_color_fg #3C4048
+set $theme_color_bg #31343A
+set $color_urgent #F44336
+set $color_unfocused #26272C
+set $text_status #616161
+set $text_dark #949494
+set $text_light #d6d5d5
+set $text_white #ffffff
+
+#color setup
+client.background $theme_background
+client.focused $theme_color_fg $theme_color_fg $text_white $theme_color_fg
+client.focused_inactive $theme_color_bg $theme_color_bg $text_light $theme_color_bg
+client.unfocused $color_unfocused $color_unfocused $text_dark $color_unfocused
+client.urgent $color_urgent $color_urgent $text_white $color_urgent
+
+bindsym $mod+d exec rofi -show run \
+	-fg "$text_light" -bg "$theme_background" -hlfg-active "$text_white" -hlbg-active "$theme_color_fg" -fg-active "$text_white" -bg-active "$color_unfocused" -hlfg "$text_white" -hlbg "$theme_color_fg" -bc "$theme_color_bg" \
+
+bindsym Mod1+Tab exec rofi -show window \
+	-fg "$text_light" -bg "$theme_background" -hlfg-active "$text_white" -hlbg-active "$theme_color_fg" -fg-active "$text_white" -bg-active "$color_unfocused" -hlfg "$text_white" -hlbg "$theme_color_fg" -bc "$theme_color_bg" \
+
+bindsym $mod+k exec rofi -show ssh \
+	-fg "$text_light" -bg "$theme_background" -hlfg-active "$text_white" -hlbg-active "$theme_color_fg" -fg-active "$text_white" -bg-active "$color_unfocused" -hlfg "$text_white" -hlbg "$theme_color_fg" -bc "$theme_color_bg" \
+
+bindsym $mod+j exec rofi -show files \
+	-fg "$text_light" -bg "$theme_background" -hlfg-active "$text_white" -hlbg-active "$theme_color_fg" -fg-active "$text_white" -bg-active "$color_unfocused" -hlfg "$text_white" -hlbg "$theme_color_fg" -bc "$theme_color_bg" \
+	-modi files:$HOME/scripts/helper/rofi/rofi-file-browser.sh
+
+#terminal
+bindsym $mod+Return exec terminator
+
+#kill windows
+bindsym $mod+Shift+q kill
+bindsym --release button2 kill
+
+#window controls
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+a focus parent
+bindsym $mod+s focus child
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+#workspace setup
+bindsym $mod+1 workspace 1 brazil
+bindsym $mod+2 workspace 2 norway
+bindsym $mod+3 workspace 3 russia
+bindsym $mod+4 workspace 4 spain
+bindsym $mod+5 workspace 5 australia
+bindsym $mod+6 workspace 6 germany
+bindsym $mod+7 workspace 7 america
+bindsym $mod+8 workspace 8 france
+bindsym $mod+9 workspace 9 china
+bindsym $mod+0 workspace 10 sweden
+
+bindsym $mod+Shift+1 move container to workspace 1 brazil
+bindsym $mod+Shift+2 move container to workspace 2 norway
+bindsym $mod+Shift+3 move container to workspace 3 russia
+bindsym $mod+Shift+4 move container to workspace 4 spain
+bindsym $mod+Shift+5 move container to workspace 5 australia
+bindsym $mod+Shift+6 move container to workspace 6 germany
+bindsym $mod+Shift+7 move container to workspace 7 america
+bindsym $mod+Shift+8 move container to workspace 8 france
+bindsym $mod+Shift+9 move container to workspace 9 china
+bindsym $mod+Shift+0 move container to workspace 10 sweden
+
+bindsym $mod+Shift+r restart
+
+mode "resize" {
+		bindsym Left        resize shrink width 10 px or 10 ppt
+		bindsym Down        resize grow height 10 px or 10 ppt
+		bindsym Up          resize shrink height 10 px or 10 ppt
+		bindsym Right       resize grow width 10 px or 10 ppt
+
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/scripts/bin/i3-system-exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/scripts/bin/i3-system-exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/scripts/bin/i3-system-exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/scripts/bin/i3-system-exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/scripts/bin/i3-system-exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/scripts/bin/i3-system-exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+#i3 bar setting
+bar {
+	status_command    python3 ~/scripts/configs/i3pystat_conf.py
+	position          top
+	workspace_buttons yes
+	colors {
+		# additionally set text color in i3pystat_conf
+		background #000000
+		statusline $text_status
+		separator $text_status
+
+		focused_workspace  $theme_color_fg $theme_color_fg $text_white
+		active_workspace   $theme_color_bg $theme_color_bg $text_light
+		inactive_workspace $color_unfocused $color_unfocused $text_dark
+		urgent_workspace   $text_white $color_urgent
+	}
+}
+
+#enable floating for the most common windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+#nautilus no desktop
+exec --no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
+
+#audio keys
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '1%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+
+#backlight
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
+#Autostart network-manager applet
+exec nm-applet
+
+#sound applet
+exec --no-startup-id gnome-sound-applet #gnome(old)
+exec --no-startup-id pa-applet #arch
+
+#bluetooth applet
+exec --no-startup-id blueman-applet
+
+#set bg
+exec --no-startup-id xsetroot -solid "#333333"
+exec_always feh --no-fehbg --bg-tile ~/Pictures/i3_image.png
+
+#Lockscreen
+bindsym $mod+l exec sh ~/scripts/bin/i3-lock-image
+
+# show control center
+bindsym $mod+Shift+c exec --no-startup-id "unset XDG_CURRENT_DESKTOP; unity-control-center"
+
+#screenshot
+bindsym Print exec --no-startup-id scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.jpg
+
+#move workspace
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output right
+
+#dropbox
+exec --no-startup-id dropbox start
+
+#parcellite clipboard manager
+exec_always --no-startup-id parcellite
