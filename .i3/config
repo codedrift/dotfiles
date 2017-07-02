@@ -37,7 +37,7 @@ bindsym $mod+j exec rofi -show files \
 	-modi files:$HOME/scripts/helper/rofi/rofi-file-browser.sh
 
 #terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec $HOME/scripts/bin/launch-tmux-alacritty
 
 #kill windows
 bindsym $mod+Shift+q kill
