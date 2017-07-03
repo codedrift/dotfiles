@@ -26,7 +26,7 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
-zplug 'themes/agnoster', from:oh-my-zsh, as:theme
+zplug "~/.zsh", from:local, use:"theme.zsh-theme", as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

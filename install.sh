@@ -1,11 +1,28 @@
 #!/bin/bash
 
-sudo ln -sf $PWD/.zshrc $HOME/.zshrc
-sudo ln -sf $PWD/.zshenv $HOME/.zshenv
-sudo ln -sf $PWD/.vimrc $HOME/.vimrc
+function linkToHome() {
+	echo "Linking $1 to $HOME/$1"
+	sudo ln -sf $PWD/$1 $HOME/$1
+}
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+function gitClone(){
+	if [ ! -d "$2" ]; then
+		echo "Cloning $1 to $2"
+		git clone $1 $2
+	else
+    	echo "Skipping $1. Folder $2 exists."
+	fi
+}
 
-sudo ln -sf $PWD/.tmux.conf $HOME/.tmux.conf
-sudo ln -sf $PWD/.i3 $HOME/.i3
-sudo ln -sf $PWD/alacritty.yml $HOME/alacritty.yml
+gitClone https://github.com/zplug/zplug ~/.zplug
+
+linkToHome .zshrc
+linkToHome .vimrc
+linkToHome .zshenv
+
+gitClone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+linkToHome .tmux.conf
+linkToHome .i3
+linkToHome alacritty.yml
+linkToHome .zsh
