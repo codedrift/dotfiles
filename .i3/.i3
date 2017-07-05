@@ -1,1 +1,1 @@
-/home/peter/dotfiles/.i3
+/home/moesenthin/dotfiles/.i3
