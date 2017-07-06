@@ -7,8 +7,8 @@ source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-completions"
 #zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
 
 #fzf - load correct history file -> load fzf bin -> load fzf keybindings
 zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
@@ -76,7 +76,7 @@ alias glo='git log --graph --oneline'
 
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
-alias aptdistupgrade='sudo apt update && sudo apt dist-upgrade -y && sudo apt autoremove -y'
+alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
 
 #purge all docker images and containers
 alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
@@ -91,26 +91,5 @@ cdl () {
 }
 
 # use alt(arrow) to move through words
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-
-starttmux() {
-    if [ -z "$HOSTS" ]; then
-       echo -n "Please provide of list of hosts separated by spaces [ENTER]: "
-       read HOSTS
-    fi
-
-    local hosts=( $HOSTS )
-
-
-    tmux new-window "ssh ${hosts[0]}"
-    unset hosts[0];
-    for i in "${hosts[@]}"; do
-        tmux split-window -h  "ssh $i"
-        tmux select-layout tiled > /dev/null
-    done
-    tmux select-pane -t 0
-    tmux set-window-option synchronize-panes on > /dev/null
-
-}
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
