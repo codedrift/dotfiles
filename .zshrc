@@ -91,5 +91,5 @@ cdl () {
 }
 
 # use alt(arrow) to move through words
-# bindkey "^[[1;5C" forward-word
-# bindkey "^[[1;5D" backward-word
+ bindkey ^F forward-word
+ bindkey ^B backward-word
