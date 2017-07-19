@@ -1,1 +1,0 @@
-/home/moesenthin/dotfiles/.i3
