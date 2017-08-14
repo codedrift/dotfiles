@@ -91,6 +91,11 @@ cdl () {
     cd $1 && ls
 }
 
+if [ -f '/home/moesenthin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/home/moesenthin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+if [ -f '/home/moesenthin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/moesenthin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+
 # use alt(arrow) to move through words
- bindkey ^F forward-word
- bindkey ^B backward-word
+# bindkey ^F forward-word
+# bindkey ^B backward-word
