@@ -1,8 +1,12 @@
 #!/bin/bash
 
+function link() {
+	sudo ln -sf $1 $2
+}
+
 function linkToHome() {
 	echo "Linking $1 to $HOME/$1"
-	sudo ln -sf $PWD/$1 $HOME/$1
+	link $PWD/$1 $HOME/$1
 }
 
 function gitClone(){
@@ -26,3 +30,5 @@ linkToHome .tmux.conf
 linkToHome .i3
 linkToHome alacritty.yml
 linkToHome .zsh
+
+link $PWD/terminator $HOME/.config/terminator
