@@ -91,9 +91,7 @@ cdl () {
     cd $1 && ls
 }
 
-if [ -f '/home/moesenthin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/home/moesenthin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-if [ -f '/home/moesenthin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/moesenthin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/dotfiles/.local" ]; then source "$HOME/dotfiles/.local"; fi
 
 
 # use alt(arrow) to move through words
