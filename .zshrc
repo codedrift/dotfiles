@@ -97,5 +97,5 @@ if [ -f '/home/moesenthin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
 
 
 # use alt(arrow) to move through words
-# bindkey ^F forward-word
-# bindkey ^B backward-word
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
