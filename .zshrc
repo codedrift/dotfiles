@@ -91,7 +91,19 @@ cdl () {
     cd $1 && ls
 }
 
-if [ -f "$HOME/dotfiles/.local" ]; then source "$HOME/dotfiles/.local"; fi
+api_token () {
+    API_TOKEN=$(curl -s --request POST \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Accept: application/json' \
+--data-urlencode "username=$1" \
+--data-urlencode "password=$2" \
+--data-urlencode "client_id=sipgate-app-web" \
+--data-urlencode "grant_type=password" \
+https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
+    echo 'Stored token in $API_TOKEN'
+}
+
+if [ -f "$HOME/.local" ]; then source "$HOME/.local"; fi
 
 
 # use alt(arrow) to move through words
