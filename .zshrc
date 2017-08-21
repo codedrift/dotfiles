@@ -103,7 +103,7 @@ https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r
     echo 'Stored token in $API_TOKEN'
 }
 
-if [ -f "$HOME/.local" ]; then source "$HOME/.local"; fi
+if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
 
 # use alt(arrow) to move through words
