@@ -91,6 +91,10 @@ cdl () {
     cd $1 && ls
 }
 
+findin () {
+    cd $1 && fzf
+}
+
 api_token () {
     API_TOKEN=$(curl -s --request POST \
 --header 'Content-Type: application/x-www-form-urlencoded' \
