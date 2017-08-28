@@ -74,6 +74,7 @@ alias gs='git status'
 alias gco='git checkout'
 alias gl='git pull'
 alias glo='git log --graph --oneline'
+alias gc='git clone'
 
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
