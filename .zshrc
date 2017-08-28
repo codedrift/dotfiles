@@ -74,6 +74,7 @@ alias gs='git status'
 alias gco='git checkout'
 alias gl='git pull'
 alias glo='git log --stat --graph --oneline | head -n 20'
+alias gc='git clone'
 
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
@@ -91,7 +92,23 @@ cdl () {
     cd $1 && ls
 }
 
-if [ -f "$HOME/dotfiles/.local" ]; then source "$HOME/dotfiles/.local"; fi
+findin () {
+    cd $1 && fzf
+}
+
+api_token () {
+    API_TOKEN=$(curl -s --request POST \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Accept: application/json' \
+--data-urlencode "username=$1" \
+--data-urlencode "password=$2" \
+--data-urlencode "client_id=sipgate-app-web" \
+--data-urlencode "grant_type=password" \
+https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
+    echo 'Stored token in $API_TOKEN'
+}
+
+if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
 
 # use alt(arrow) to move through words
