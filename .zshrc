@@ -80,6 +80,8 @@ alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
 alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
 
+alias ports='sudo netstat -tulpn'
+
 #purge all docker images and containers
 alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
 
