@@ -68,7 +68,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 alias gac='git add -A && git commit -v'
-alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git diff --cached && echo "\n${BLUE}########## Unstaged ##########${NC}" && git diff'
+alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git --no-pager diff --cached && echo "\n${BLUE}########## Unstaged ##########${NC}" && git --no-pager diff'
 alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
