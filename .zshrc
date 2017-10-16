@@ -95,7 +95,8 @@ cdl () {
 }
 
 findin () {
-    cd $1 && fzf
+    cd $1 && selected_find=$(fzf)
+    echo $selected_find | xclip -sel clip
 }
 
 api_token () {
