@@ -31,4 +31,4 @@ linkToHome .i3
 linkToHome alacritty.yml
 linkToHome .zsh
 
-link $PWD/terminator $HOME/.config/terminator
+link $PWD/terminator $HOME/.config/
