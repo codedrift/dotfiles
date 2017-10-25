@@ -9,6 +9,7 @@ zplug "zsh-users/zsh-completions"
 #zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
 
 #fzf - load correct history file -> load fzf bin -> load fzf keybindings
 zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
