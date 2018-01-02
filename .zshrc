@@ -112,6 +112,18 @@ https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r
     echo 'Stored token in $API_TOKEN'
 }
 
+api_token_dev () {
+    API_TOKEN_DEV=$(curl -s --request POST \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Accept: application/json' \
+--data-urlencode "username=$1" \
+--data-urlencode "password=$2" \
+--data-urlencode "client_id=sipgate-app-web" \
+--data-urlencode "grant_type=password" \
+https://api.dev.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
+    echo 'Stored token in $API_TOKEN_DEV'
+}
+
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
 

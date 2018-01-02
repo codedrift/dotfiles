@@ -135,8 +135,8 @@ bar {
 }
 
 #enable floating for the most common windows
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
+#for_window [window_role="pop-up"] floating enable
+#for_window [window_role="task_dialog"] floating enable
 
 #nautilus no desktop
 exec --no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
