@@ -147,8 +147,8 @@ bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 
 #backlight
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 #Autostart network-manager applet
 exec nm-applet
@@ -168,7 +168,7 @@ exec_always feh --no-fehbg --bg-tile ~/Pictures/i3_image.png
 bindsym $mod+l exec sh ~/scripts/bin/i3-lock-image
 
 # show control center
-bindsym $mod+Shift+c exec --no-startup-id "unset XDG_CURRENT_DESKTOP; unity-control-center"
+bindsym $mod+Shift+c exec --no-startup-id "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
 #screenshot
 bindsym Print exec --no-startup-id scrot ~/Pictures/Screenshot_%Y-%m-%d_%H-%M-%S.jpg

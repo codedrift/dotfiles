@@ -1,1 +1,1 @@
-/home/peter/dotfiles/.zsh
+/home/moesenthin/code/dotfiles/.zsh
