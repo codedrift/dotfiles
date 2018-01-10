@@ -39,8 +39,8 @@ fi
 zplug load
 
 ############# exports #############
-export JAVA_HOME='/usr/lib/jvm/java-8-oracle'
-export IDEA_JDK='/usr/lib/jvm/java-8-oracle'
+export JAVA_HOME='/usr/lib/jvm/default-java'
+export IDEA_JDK='/usr/lib/jvm/default-java'
 
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
