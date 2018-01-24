@@ -1,4 +1,5 @@
 [global_config]
+  broadcast_default = off
   title_hide_sizetext = True
 [keybindings]
   close_term = <Alt>x
