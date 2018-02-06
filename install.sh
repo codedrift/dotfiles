@@ -24,11 +24,11 @@ linkToHome .zshrc
 linkToHome .vimrc
 linkToHome .zshenv
 
-gitClone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#gitClone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-linkToHome .tmux.conf
-linkToHome .i3
-linkToHome alacritty.yml
+#linkToHome .tmux.conf
+#linkToHome .i3
+#linkToHome alacritty.yml
 linkToHome .zsh
 
 link $PWD/terminator $HOME/.config/
