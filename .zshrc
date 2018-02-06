@@ -10,6 +10,7 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "plugins/pass/", from:oh-my-zsh
 
 #fzf - load correct history file -> load fzf bin -> load fzf keybindings
 zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
@@ -39,8 +40,8 @@ fi
 zplug load
 
 ############# exports #############
-export JAVA_HOME='/usr/lib/jvm/java-8-oracle'
-export IDEA_JDK='/usr/lib/jvm/java-8-oracle'
+export JAVA_HOME='/usr/lib/jvm/default-java'
+export IDEA_JDK='/usr/lib/jvm/default-java'
 
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
@@ -77,6 +78,10 @@ alias gl='git pull'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
 
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
 alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
@@ -110,6 +115,18 @@ api_token () {
 --data-urlencode "grant_type=password" \
 https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
     echo 'Stored token in $API_TOKEN'
+}
+
+api_token_dev () {
+    API_TOKEN_DEV=$(curl -s --request POST \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Accept: application/json' \
+--data-urlencode "username=$1" \
+--data-urlencode "password=$2" \
+--data-urlencode "client_id=sipgate-app-web" \
+--data-urlencode "grant_type=password" \
+https://api.dev.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
+    echo 'Stored token in $API_TOKEN_DEV'
 }
 
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
