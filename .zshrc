@@ -78,6 +78,10 @@ alias gl='git pull'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
 
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
 alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
