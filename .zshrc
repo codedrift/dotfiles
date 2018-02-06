@@ -75,6 +75,7 @@ alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
 alias gl='git pull'
+alias gcm='git commit -m'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
 
