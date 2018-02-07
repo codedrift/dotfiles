@@ -32,3 +32,5 @@ linkToHome .zshenv
 linkToHome .zsh
 
 link $PWD/terminator $HOME/.config/
+link $PWD/kde/kglobalshortcutsrc $HOME/.config/kglobalshortcutsrc
+link $PWD/kde/klipperrc $HOME/.config/klipperrc
