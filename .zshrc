@@ -46,6 +46,7 @@ export IDEA_JDK='/usr/lib/jvm/default-java'
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOPATH/bin
 
 SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
