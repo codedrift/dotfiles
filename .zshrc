@@ -6,7 +6,6 @@
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-completions"
-#zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
@@ -46,6 +45,7 @@ export IDEA_JDK='/usr/lib/jvm/default-java'
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOPATH/bin
 
 SCALA_HOME=$HOME/scala
 export PATH=$PATH:$SCALA_HOME/bin
@@ -54,6 +54,7 @@ export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 export PATH=$PATH:$HOME/scripts/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/opt/node/bin
+export PATH=$PATH:/usr/lib/node_modules
 
 export EDITOR='vim'
 
@@ -74,7 +75,7 @@ alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git --no-pager di
 alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
-alias gl='git pull'
+alias gl='git pull --rebase'
 alias gcm='git commit -m'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
