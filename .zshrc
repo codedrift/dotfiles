@@ -64,7 +64,7 @@ export FZF_DEFAULT_OPTS="-e"
 
 ############# aliases #############
 alias ls='ls --color=auto'
-alias ll='ls -la --color=auto'
+alias ll='ls -lah --color=auto'
 
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
