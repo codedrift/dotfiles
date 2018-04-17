@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function link() {
-	sudo ln -sf $1 $2
+	echo "Linking $1 to $2"
+	ln -sf $1 $2
 }
 
 function linkToHome() {
-	echo "Linking $1 to $HOME/$1"
 	link $PWD/$1 $HOME/$1
 }
 
@@ -18,17 +18,14 @@ function gitClone(){
 	fi
 }
 
+
 gitClone https://github.com/zplug/zplug ~/.zplug
 
 linkToHome .zshrc
 linkToHome .vimrc
 linkToHome .zshenv
-
-#gitClone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-#linkToHome .tmux.conf
-#linkToHome .i3
-#linkToHome alacritty.yml
 linkToHome .zsh
+
+linkToHome .hyper.js
 
 link $PWD/terminator $HOME/.config/
