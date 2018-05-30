@@ -55,6 +55,7 @@ export PATH=$PATH:$HOME/scripts/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/opt/node/bin
 export PATH=$PATH:/usr/lib/node_modules
+export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR='vim'
 
