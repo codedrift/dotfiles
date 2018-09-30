@@ -26,6 +26,6 @@ linkToHome .vimrc
 linkToHome .zshenv
 linkToHome .zsh
 
-linkToHome .hyper.js
+#linkToHome .hyper.js
 
 link $PWD/terminator $HOME/.config/
