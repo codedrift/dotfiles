@@ -77,9 +77,11 @@ alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
 alias gl='git pull --rebase'
+alias gsl='git stash && git pull --rebase'
 alias gcm='git commit -m'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
+alias mysql='mycli'
 
 alias ..='cd ..'
 alias ....='cd ../..'
@@ -97,6 +99,10 @@ alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images
 take () {
 	mkdir -p $1
 	cd $1
+}
+
+llg () {
+	ll | grep -i $1
 }
 
 cdl () {
