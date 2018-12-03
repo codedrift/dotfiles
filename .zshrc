@@ -140,10 +140,6 @@ https://api.dev.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | j
 
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # use alt(arrow) to move through words
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
