@@ -81,7 +81,6 @@ alias gsl='git stash && git pull --rebase'
 alias gcm='git commit -m'
 alias glo='git log --stat --graph --oneline | head -n 20'
 alias gc='git clone'
-alias mysql='mycli'
 
 alias ..='cd ..'
 alias ....='cd ../..'
