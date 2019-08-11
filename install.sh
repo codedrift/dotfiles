@@ -22,7 +22,7 @@ function gitClone(){
 gitClone https://github.com/zplug/zplug ~/.zplug
 
 linkToHome .zshrc
-linkToHome .vimrc
+# linkToHome .vimrc
 linkToHome .zshenv
 linkToHome .zsh
 

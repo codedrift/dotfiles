@@ -17,11 +17,11 @@ zplug "junegunn/fzf-bin", \
     from:gh-r, \
     as:command, \
     rename-to:fzf, \
-    use:"*linux*amd64*"
+    use:"*darwin*amd64*"
 zplug "junegunn/fzf", use:"shell/*.zsh"
 
-zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
-zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
+# zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
+# zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
 
 zplug "plugins/kubectl", from:oh-my-zsh
 
@@ -39,23 +39,23 @@ fi
 zplug load
 
 ############# exports #############
-export JAVA_HOME='/usr/lib/jvm/default-java'
-export IDEA_JDK='/usr/lib/jvm/default-java'
+# export JAVA_HOME='/usr/lib/jvm/default-java'
+# export IDEA_JDK='/usr/lib/jvm/default-java'
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/code/go
-export PATH=$PATH:$GOPATH
-export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:/usr/local/go/bin
+# export GOPATH=$HOME/code/go
+# export PATH=$PATH:$GOPATH
+# export PATH=$PATH:$GOPATH/bin
 
-SCALA_HOME=$HOME/scala
-export PATH=$PATH:$SCALA_HOME/bin
+# SCALA_HOME=$HOME/scala
+# export PATH=$PATH:$SCALA_HOME/bin
 
-export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$HOME/scripts/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:/opt/node/bin
-export PATH=$PATH:/usr/lib/node_modules
-export PATH=$PATH:$HOME/.local/bin
+# export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
+# export PATH=$PATH:$HOME/scripts/bin
+# export PATH=$PATH:$HOME/.cargo/bin
+# export PATH=$PATH:/opt/node/bin
+# export PATH=$PATH:/usr/lib/node_modules
+# export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR='vim'
 
@@ -65,8 +65,8 @@ export HISTCONTROL=erasedups:ignorespace
 export FZF_DEFAULT_OPTS="-e"
 
 ############# aliases #############
-alias ls='ls --color=auto'
-alias ll='ls -lah --color=auto'
+alias ls='ls'
+alias ll='ls -lah'
 
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
@@ -85,10 +85,11 @@ alias gc='git clone'
 alias ..='cd ..'
 alias ....='cd ../..'
 alias ......='cd ../../..'
+alias ........='cd ../../../..'
 
-alias aptupdate='sudo apt-get update'
-alias aptinstall='sudo apt-get install'
-alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
+# alias aptupdate='sudo apt-get update'
+# alias aptinstall='sudo apt-get install'
+# alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
 
 alias ports='sudo netstat -tulpn'
 
@@ -140,5 +141,6 @@ https://api.dev.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | j
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
 # use alt(arrow) to move through words
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
