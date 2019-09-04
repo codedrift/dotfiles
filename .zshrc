@@ -23,7 +23,7 @@ zplug "junegunn/fzf", use:"shell/*.zsh"
 # zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
 # zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
 
-zplug "plugins/kubectl", from:oh-my-zsh
+# zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
@@ -50,7 +50,7 @@ zplug load
 # SCALA_HOME=$HOME/scala
 # export PATH=$PATH:$SCALA_HOME/bin
 
-# export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
+ export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 # export PATH=$PATH:$HOME/scripts/bin
 # export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:/opt/node/bin
@@ -143,4 +143,3 @@ if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
-

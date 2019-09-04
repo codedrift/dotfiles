@@ -23,11 +23,11 @@ Key.on("up", MOD_KEYS, function() {
     return;
   }
 
-  if (isWindowMaximised(screen, window)) {
-    setWindowSmallCentered(screen, window);
-  } else {
-    setWindowMaximised(window);
-  }
+  // if (isWindowMaximised(screen, window)) {
+  //   setWindowSmallCentered(screen, window);
+  // } else {
+  setWindowMaximised(window);
+  // }
 });
 
 Key.on("down", MOD_KEYS, function() {

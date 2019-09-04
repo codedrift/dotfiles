@@ -25,6 +25,7 @@ linkToHome .zshrc
 # linkToHome .vimrc
 linkToHome .zshenv
 linkToHome .zsh
+linkToHome .phoenix.js
 
 #linkToHome .hyper.js
 
