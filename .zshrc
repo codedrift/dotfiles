@@ -26,6 +26,7 @@ zplug "junegunn/fzf", use:"shell/*.zsh"
 # zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
 
 zplug "~/.zsh", from:local, use:"theme.zsh-theme", as:theme
 
@@ -143,3 +144,5 @@ if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 # use alt(arrow) to move through words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+[ -s "/Users/moesenthin/.jabba/jabba.sh" ] && source "/Users/moesenthin/.jabba/jabba.sh"
