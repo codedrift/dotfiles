@@ -22,11 +22,9 @@ function gitClone(){
 gitClone https://github.com/zplug/zplug ~/.zplug
 
 linkToHome .zshrc
-# linkToHome .vimrc
+linkToHome .vimrc
 linkToHome .zshenv
 linkToHome .zsh
 linkToHome .phoenix.js
 
-#linkToHome .hyper.js
-
-link $PWD/terminator $HOME/.config/
+linkToHome .hyper.js
