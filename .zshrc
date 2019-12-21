@@ -30,6 +30,11 @@ zplug "plugins/docker", from:oh-my-zsh
 
 zplug "~/.zsh", from:local, use:"theme.zsh-theme", as:theme
 
+# zplug "eendroroy/alien-minimal"
+
+# zplug mafredri/zsh-async, from:github
+# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -38,6 +43,8 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+unset zle_bracketed_paste
 
 ############# exports #############
 # export JAVA_HOME='/usr/lib/jvm/default-java'
