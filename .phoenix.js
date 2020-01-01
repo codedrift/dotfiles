@@ -23,11 +23,11 @@ Key.on("up", MOD_KEYS, function() {
     return;
   }
 
-  // if (isWindowMaximised(screen, window)) {
-  //   setWindowSmallCentered(screen, window);
-  // } else {
-  setWindowMaximised(window);
-  // }
+  if (isWindowMaximised(screen, window)) {
+    setWindowTopHalf(window, screen);
+  } else {
+    setWindowMaximised(window);
+  }
 });
 
 Key.on("down", MOD_KEYS, function() {
@@ -41,7 +41,11 @@ Key.on("down", MOD_KEYS, function() {
     return;
   }
 
-  setWindowSmallCentered(screen, window);
+  if (isWindowCentered(window)) {
+    setWindowBottomHalf(window, screen);
+  } else {
+    setWindowSmallCentered(screen, window);
+  }
 });
 
 Key.on("left", MOD_KEYS, function() {
@@ -102,6 +106,30 @@ function setWindowSplitLeft(window, screen) {
     height: screen.height
   });
 }
+function setWindowTopHalf(window, screen) {
+  Phoenix.log("setWindowTopHalf", window.title());
+  window.setTopLeft({
+    x: 0,
+    y: 0
+  });
+  window.setSize({
+    width: screen.width,
+    height: screen.height / 2
+  });
+}
+
+function setWindowBottomHalf(window, screen) {
+  Phoenix.log("setWindowBottomHalf", window.title());
+  window.setTopLeft({
+    x: 0,
+    y: screen.height / 2
+  });
+  window.setSize({
+    width: screen.width,
+    height: screen.height / 2
+  });
+}
+
 function setWindowSplitRight(window, screen) {
   Phoenix.log("setWindowSplitRight", window.title());
   window.setTopLeft({
@@ -118,6 +146,13 @@ function isWindowMaximised(screen, window) {
   return (
     window.size().height === screen.height &&
     window.size().width === screen.width
+  );
+}
+
+function isWindowCentered(window) {
+  return (
+    window.size().height === SMALL_WINDOW_HEIGHT &&
+    window.size().width === SMALL_WINDOW_WIDTH
   );
 }
 
