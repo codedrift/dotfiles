@@ -19,12 +19,14 @@ function gitClone(){
 }
 
 
-gitClone https://github.com/zplug/zplug ~/.zplug
+# gitClone https://github.com/zplug/zplug ~/.zplug
 
-linkToHome .zshrc
-linkToHome .vimrc
-linkToHome .zshenv
-linkToHome .zsh
-linkToHome .phoenix.js
+# linkToHome .zshrc
+# linkToHome .vimrc
+# linkToHome .zshenv
+# linkToHome .zsh
+# linkToHome .phoenix.js
 
-linkToHome .hyper.js
+# linkToHome .hyper.js
+
+linkToHome .zsh_local

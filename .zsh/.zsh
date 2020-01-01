@@ -1,1 +1,0 @@
-/Users/moesenthin/dotfiles/.zsh

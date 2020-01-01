@@ -1,15 +1,14 @@
-############# zplug config #############
-# run
-# curl -sL zplug.sh/installer | zsh
-# to install zplug itself
-
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
-zplug "plugins/pass/", from:oh-my-zsh
+
+export HISTCONTROL=erasedups:ignorespace
+
+#use exact match for fzf
+export FZF_DEFAULT_OPTS="-e"
 
 #fzf - load correct history file -> load fzf bin -> load fzf keybindings
 zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
@@ -20,20 +19,10 @@ zplug "junegunn/fzf-bin", \
     use:"*darwin*amd64*"
 zplug "junegunn/fzf", use:"shell/*.zsh"
 
-# zplug "sorin-ionescu/prezto", use:modules/history/init.zsh
-# zplug "sorin-ionescu/prezto", use:modules/completion/init.zsh
-
-# zplug "plugins/kubectl", from:oh-my-zsh
-
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 
 zplug "~/.zsh", from:local, use:"theme.zsh-theme", as:theme
-
-# zplug "eendroroy/alien-minimal"
-
-# zplug mafredri/zsh-async, from:github
-# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -46,31 +35,7 @@ zplug load
 
 unset zle_bracketed_paste
 
-############# exports #############
-# export JAVA_HOME='/usr/lib/jvm/default-java'
-# export IDEA_JDK='/usr/lib/jvm/default-java'
-
-# export PATH=$PATH:/usr/local/go/bin
-# export GOPATH=$HOME/code/go
-# export PATH=$PATH:$GOPATH
-# export PATH=$PATH:$GOPATH/bin
-
-# SCALA_HOME=$HOME/scala
-# export PATH=$PATH:$SCALA_HOME/bin
-
- export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-# export PATH=$PATH:$HOME/scripts/bin
-# export PATH=$PATH:$HOME/.cargo/bin
-# export PATH=$PATH:/opt/node/bin
-# export PATH=$PATH:/usr/lib/node_modules
-# export PATH=$PATH:$HOME/.local/bin
-
 export EDITOR='vim'
-
-export HISTCONTROL=erasedups:ignorespace
-
-#use exact match for fzf
-export FZF_DEFAULT_OPTS="-e"
 
 ############# aliases #############
 alias ls='ls'
@@ -80,7 +45,6 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 alias gac='git add -A && git commit -v'
-alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git --no-pager diff --cached && echo "\n${BLUE}########## Unstaged ##########${NC}" && git --no-pager diff'
 alias gp='git push'
 alias gs='git status'
 alias gco='git checkout'
@@ -95,14 +59,21 @@ alias ....='cd ../..'
 alias ......='cd ../../..'
 alias ........='cd ../../../..'
 
-# alias aptupdate='sudo apt-get update'
-# alias aptinstall='sudo apt-get install'
-# alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
-
 alias ports='sudo netstat -tulpn'
 
 #purge all docker images and containers
-alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
+gd () {
+    echo "\n${BLUE}########## Cached ##########${NC}"
+    git --no-pager diff --cached
+    echo "\n${BLUE}########## Unstaged ##########${NC}"
+    git --no-pager diff
+}
+
+dockercleanall () {
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
+    docker system prune
+}
 
 take () {
 	mkdir -p $1
@@ -122,34 +93,4 @@ findin () {
     echo $selected_find | xclip -sel clip
 }
 
-api_token () {
-    API_TOKEN=$(curl -s --request POST \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Accept: application/json' \
---data-urlencode "username=$1" \
---data-urlencode "password=$2" \
---data-urlencode "client_id=sipgate-app-web" \
---data-urlencode "grant_type=password" \
-https://api.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
-    echo 'Stored token in $API_TOKEN'
-}
-
-api_token_dev () {
-    API_TOKEN_DEV=$(curl -s --request POST \
---header 'Content-Type: application/x-www-form-urlencoded' \
---header 'Accept: application/json' \
---data-urlencode "username=$1" \
---data-urlencode "password=$2" \
---data-urlencode "client_id=sipgate-app-web" \
---data-urlencode "grant_type=password" \
-https://api.dev.sipgate.com/login/sipgate-apps/protocol/openid-connect/token | jq -r '.access_token')
-    echo 'Stored token in $API_TOKEN_DEV'
-}
-
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
-
-# use alt(arrow) to move through words
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-[ -s "/Users/moesenthin/.jabba/jabba.sh" ] && source "/Users/moesenthin/.jabba/jabba.sh"
