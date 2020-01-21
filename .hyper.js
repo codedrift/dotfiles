@@ -172,8 +172,8 @@ module.exports = {
     "pane:splitVertical": "option+v",
     "pane:splitHorizontal": "option+h",
     "pane:close": "option+x",
-    "pane:next": "option+right",
-    "pane:prev": "option+left",
+    // "pane:next": "option+right",
+    // "pane:prev": "option+left",
     "tab:new": "option+t"
     // Example
     // 'window:devtools': 'cmd+alt+o',
