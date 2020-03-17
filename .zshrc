@@ -27,7 +27,12 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug "plugins/yarn/yarn.plugin.zsh", from:oh-my-zsh
 
-zplug "~/.zsh", from:local, use:"theme.zsh-theme", as:theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+zstyle :prompt:pure:path color grey
+
+zstyle :prompt:pure:git:stash show yes
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -37,22 +42,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-############# exports #############
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/code/go
-export PATH=$PATH:$GOPATH
-export PATH=$PATH:$GOPATH/bin
-
-SCALA_HOME=$HOME/scala
-export PATH=$PATH:$SCALA_HOME/bin
-
-export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$HOME/scripts/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:/opt/node/bin
-export PATH=$PATH:/usr/lib/node_modules
-export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR='vim'
 
@@ -68,7 +57,7 @@ alias ll='ls -lah --color=auto'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-alias gac='git add -A && git commit -v'
+alias gac='git add -A && gitmoji -c'
 alias gd='echo "\n${BLUE}########## Cached ##########${NC}" && git --no-pager diff --cached && echo "\n${BLUE}########## Unstaged ##########${NC}" && git --no-pager diff'
 alias gp='git push'
 alias gs='git status'
