@@ -65,7 +65,8 @@ alias gco='git checkout'
 alias gl='git pull --rebase'
 alias gsl='git stash && git pull --rebase'
 alias gcm='git commit -m'
-alias glo='git log --stat --graph --oneline | head -n 20'
+# alias glo='git log --stat --graph --oneline | head -n 20'
+alias glo="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all --color=always | head -n 20"
 alias gc='git clone'
 
 alias ..='cd ..'
