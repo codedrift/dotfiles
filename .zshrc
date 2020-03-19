@@ -75,7 +75,7 @@ alias ......='cd ../../..'
 
 alias aptupdate='sudo apt-get update'
 alias aptinstall='sudo apt-get install'
-alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y'
+alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo snap refresh'
 
 alias ports='sudo netstat -tulpn'
 
