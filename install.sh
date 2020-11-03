@@ -1,15 +1,15 @@
 #!/bin/bash
 
-function link() {
+link () {
 	echo "Linking $1 to $2"
 	ln -sf $1 $2
 }
 
-function linkToHome() {
+linkToHome() {
 	link $PWD/$1 $HOME/$1
 }
 
-function gitClone(){
+gitClone(){
 	if [ ! -d "$2" ]; then
 		echo "Cloning $1 to $2"
 		git clone $1 $2
@@ -25,6 +25,8 @@ linkToHome .zshrc
 linkToHome .vimrc
 linkToHome .zshenv
 linkToHome .zsh
+
+touch $HOME/.zsh_local
 
 #linkToHome .hyper.js
 

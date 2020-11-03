@@ -50,6 +50,14 @@ export HISTCONTROL=erasedups:ignorespace
 #use exact match for fzf
 export FZF_DEFAULT_OPTS="-e"
 
+# Fix for vscode freezing on file delete
+export ELECTRON_TRASH=gio
+
+############# path #############
+
+export PATH=/home/$USER/scripts/bin:$PATH
+
+
 ############# aliases #############
 alias ls='ls --color=auto'
 alias ll='ls -lah --color=auto'
@@ -79,6 +87,8 @@ alias aptdistupgrade='sudo apt-get update && sudo apt-get dist-upgrade -y && sud
 
 alias ports='sudo netstat -tulpn'
 
+alias npmlinked='( ls -l node_modules ; ls -l node_modules/@* ) | grep "^l"'
+
 #purge all docker images and containers
 alias dockercleanall='docker rm $(docker ps -a -q) && docker rmi $(docker images -q)'
 
@@ -100,9 +110,12 @@ findin () {
     echo $selected_find | xclip -sel clip
 }
 
+# file for local only zsh data - will not be saved
 if [ -f "$HOME/.zsh_local" ]; then source "$HOME/.zsh_local"; fi
 
 # use alt(arrow) to move through words
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
+
+
 
